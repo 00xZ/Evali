@@ -38,6 +38,9 @@ def gethref(site, proxy):
             print("        [+] Sending payload " + okay)
             reeqee = requests.get(okay, timeout=6, headers=headers, proxies=proxy)
             souper = BeautifulSoup(reeqee.text, "html.parser")
+            blacklist = ['*jquery*']
+            if any([fnmatch.fnmatch(okay, filtering) for filtering in blacklist]):
+                continue
             if souper(text=lambda t: "eval" in t):
                 print("\n             [Z] " + okay + " :  [Z] Eval Found [Z] \n")
                 fo = open("Eval_found.txt", "a+")
@@ -50,14 +53,16 @@ def gethref(site, proxy):
         print("  [!] No Function Found : " + okay)
 
 
-
+##############################################################################
+##############################################################################
+##############################################################################
 		
 		
 
 def title(url, proxy):
 	url = (url)
 	sitelists = []
-	blacklist = ['*stackoverflow*', "*mikrotik*", "*plesk*", "*pinterest*", '*youtu*',  '*wikipedia*', "*apache*", '*microsoft*', '*centos*', '*google*', '*yahoo*', '*cloudflare*','*instagram*', '*facebook*' ,'*youtube*', '*twitter*','*tiktok*','*snapchat*','*gmail*','*amazon*', '*nginx*' ,'*bing*']
+	blacklist = ['*stackoverflow*', "*mikrotik*", "*jquery*", "*plesk*", "*pinterest*", '*youtu*',  '*wikipedia*', "*apache*", '*microsoft*', '*centos*', '*google*', '*yahoo*', '*cloudflare*','*instagram*', '*facebook*' ,'*youtube*', '*twitter*','*tiktok*','*snapchat*','*gmail*','*amazon*', '*nginx*' ,'*bing*']
 	try:
 		headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36", "Content-Type":"text"}
 		rqt = requests.get(url, timeout=6, verify=True, headers=headers, proxies=proxy)
@@ -115,6 +120,15 @@ def whatitbe(ip, proxy):
 		title(url, proxy)
 	except:
 		pass
+
+
+##############################################################################
+##############################################################################
+##############################################################################
+
+
+
+
 def main():
 	presentation()
 	count = 0
