@@ -30,9 +30,9 @@ def gethref(site, proxy):
                 if urlIIQ == False:
                     okay = (ur + "/" + okay)
                 else: 
-                if urlIIQ == True:
-                    okay = (okay)
-                except: pass
+                    if urlIIQ == True:
+                        okay = (okay)
+                    except: pass
             print("    [X] JavaScript: " + okay)
             fo1 = open("JavaScript_links.txt", "a+")
             fo1.write(okay+ "\n")
