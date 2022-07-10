@@ -13,7 +13,7 @@ def presentation():
     print("   |         ~00xZ    |")
     print("   |                  |")
     print("   +------------------+")
-    print("/n     Find Eval Functions in JS")
+    print("\n     Find Eval Functions in JS")
 
 
 def gethref(site, proxy):
