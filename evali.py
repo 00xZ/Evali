@@ -13,7 +13,7 @@ def presentation():
     print("   |         ~00xZ    |")
     print("   |                  |")
     print("   +------------------+")
-    print("\n     Find Eval Functions in JS")
+    print("\n     Find Eval Functions in JS \n")
 
 
 def gethref(site, proxy):
@@ -29,8 +29,10 @@ def gethref(site, proxy):
                 urlIIQ = bool(ur in okay)#Url Is In Quiry
                 if urlIIQ == False:
                     okay = (ur + "/" + okay)
-                else: pass
-            except: pass
+                else: 
+                if urlIIQ == True:
+                    okay = (okay)
+                except: pass
             print("    [X] JavaScript: " + okay)
             fo1 = open("JavaScript_links.txt", "a+")
             fo1.write(okay+ "\n")
